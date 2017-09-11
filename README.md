@@ -1,2 +1,0 @@
-# ProfQ
-Its ProfQ
