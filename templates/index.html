@@ -1,0 +1,11 @@
+{% if bets %}
+    <ul>
+    {% for bet in bets %}
+        <li><a href="{{ bet.id }}/">{{ bet.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Available Bet</p>
+{% endif %}
+
+<a href="newBet/">Place a bet!</a></li>

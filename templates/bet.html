@@ -1,0 +1,24 @@
+{% if bet %}
+    <ul>
+        <li>Name: {{ bet.name }}</li>
+        <li>Description: {{bet.description}}</li>
+        <li>Date: {{ bet.date }}</li>
+        <li>Bet Maker: {{bet.bet_maker.name}}</li>
+        <li>Bet Taker: {{bet.bet_taker}}</li>
+        <li>Completed: {{bet.complete}}</li>
+    </ul>
+
+    <br>
+{% else %}
+    <p>Error</p>
+{% endif %}
+
+{% if True != bet.complete %}
+<form action="/complete/{{ bet.id }}" method="post">
+    {% csrf_token %}
+    <button type="submit">Complete!</button>
+
+</form>
+{% endif %}
+
+<a href="/" >Go Back</a>

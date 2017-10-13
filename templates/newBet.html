@@ -1,0 +1,35 @@
+<h3>Place a new Bet</h3>
+
+<form action="/placeBet/" method="post">
+    {% csrf_token %}
+    <div>
+        <label for="title">Bet Title:</label>
+        <input type="text" name="title">
+    </div>
+
+    <br>
+
+    <div>
+        <label for="description">Bet Description:</label>
+        <textarea name="description" rows="5" cols="30"></textarea>
+    </div>
+
+    <br>
+
+    <div>
+        <label for="maker">Bet Maker:</label>
+        <input type="text" name="maker">
+    </div>
+
+    <br>
+
+    <div>
+        <label for="taker">Bet Taker:</label>
+        <input type="text" name="taker">
+    </div>
+
+    <div>
+        <button type="submit">Submit!</button>
+    </div>
+
+</form>

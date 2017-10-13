@@ -22,8 +22,9 @@ app_name = 'polls'
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # ex: /polls/
-    url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
-    url(r'^(?P<pk>[0-9]+)/results/$', views.ResultsView.as_view(), name='results'),
-    url(r'^(?P<question_id>[0-9]+)/vote/$', views.vote, name='vote')
+    url(r'^$', views.index, name='index'),
+    url(r'^(?P<bet_id>[0-9]+)/', views.bet, name='bet'),
+    url(r'^newBet/', views.new_bet, name='new_bet'),
+    url(r'^placeBet/', views.place_bet, name='place_bet'),
+    url(r'^complete/(?P<bet_id>[0-9]+)', views.complete, name='complete'),
 ]

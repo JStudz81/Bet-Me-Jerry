@@ -1,21 +1,20 @@
 import datetime
 
 from django.db import models
+from datetime import date
 from django.utils import timezone
-
-class Question(models.Model):
-    question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
-    def __str__(self):
-        return self.question_text
-    def was_published_recently(self):
-    	now = timezone.now()
-    	return now - datetime.timedelta(days=1) <= self.pub_date <= now
+from django.core.validators import validate_comma_separated_integer_list
 
 
-class Choice(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
-    def __str__(self):
-        return self.choice_text
+class Bet(models.Model):
+    name = models.CharField(max_length=200)
+    date = models.DateField(auto_now_add=True)
+    description = models.CharField(max_length=200)
+    bet_maker = models.CharField(max_length=200, default='maker')
+    bet_taker = models.CharField(max_length=200, default='taker')
+    complete = models.BooleanField(default=False)
+
+
+class User(models.Model):
+    name = models.CharField(max_length=200)
+    email = models.CharField(max_length=200)
